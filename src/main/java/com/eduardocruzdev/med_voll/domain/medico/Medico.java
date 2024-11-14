@@ -1,6 +1,6 @@
-package com.eduardocruzdev.med_voll.medico;
+package com.eduardocruzdev.med_voll.domain.medico;
 
-import com.eduardocruzdev.med_voll.direccion.Direccion;
+import com.eduardocruzdev.med_voll.domain.direccion.Direccion;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

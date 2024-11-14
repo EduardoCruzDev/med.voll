@@ -1,4 +1,4 @@
-package com.eduardocruzdev.med_voll.direccion;
+package com.eduardocruzdev.med_voll.domain.direccion;
 
 
 import jakarta.persistence.Embeddable;

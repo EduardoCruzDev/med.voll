@@ -1,6 +1,6 @@
-package com.eduardocruzdev.med_voll.medico;
+package com.eduardocruzdev.med_voll.domain.medico;
 
-import com.eduardocruzdev.med_voll.direccion.DatosDireccion;
+import com.eduardocruzdev.med_voll.domain.direccion.DatosDireccion;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

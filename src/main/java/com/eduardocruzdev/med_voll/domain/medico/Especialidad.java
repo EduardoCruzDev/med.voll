@@ -1,4 +1,4 @@
-package com.eduardocruzdev.med_voll.medico;
+package com.eduardocruzdev.med_voll.domain.medico;
 
 public enum Especialidad {
 

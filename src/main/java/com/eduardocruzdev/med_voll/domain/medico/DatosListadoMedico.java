@@ -1,4 +1,4 @@
-package com.eduardocruzdev.med_voll.medico;
+package com.eduardocruzdev.med_voll.domain.medico;
 
 public record DatosListadoMedico(Long id, String nombre, String especialidad, String documento, String email) {
 public DatosListadoMedico(Medico medico) {
