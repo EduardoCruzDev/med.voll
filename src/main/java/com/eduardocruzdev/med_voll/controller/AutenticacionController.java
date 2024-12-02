@@ -1,7 +1,6 @@
-package com.eduardocruzdev.med_voll.domain.usuarios;
+package com.eduardocruzdev.med_voll.controller;
 
-
-import com.eduardocruzdev.med_voll.controller.DatosAutenticacionUsuario;
+import com.eduardocruzdev.med_voll.domain.usuarios.Usuario;
 import com.eduardocruzdev.med_voll.infra.security.DatosJWTToken;
 import com.eduardocruzdev.med_voll.infra.security.TokenService;
 import jakarta.validation.Valid;
@@ -10,12 +9,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequestMapping("/login")
 public class AutenticacionController {
 
@@ -26,10 +25,12 @@ public class AutenticacionController {
     private TokenService tokenService;
 
     @PostMapping
-    public ResponseEntity autenticarUsuario(@RequestBody @Valid DatosAutenticacionUsuario datosAutenticacionUsuario){
-        Authentication authToken = new UsernamePasswordAuthenticationToken(datosAutenticacionUsuario.login(),datosAutenticacionUsuario.clave());
+    public ResponseEntity autenticarUsuario(@RequestBody @Valid DatosAutenticacionUsuario datosAutenticacionUsuario) {
+        Authentication authToken = new UsernamePasswordAuthenticationToken(datosAutenticacionUsuario.login(),
+                datosAutenticacionUsuario.clave());
         var usuarioAutenticado = authenticationManager.authenticate(authToken);
         var JWTtoken = tokenService.generarToken((Usuario) usuarioAutenticado.getPrincipal());
         return ResponseEntity.ok(new DatosJWTToken(JWTtoken));
     }
+
 }
