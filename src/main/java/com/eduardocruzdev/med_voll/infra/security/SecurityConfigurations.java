@@ -28,6 +28,7 @@ public class SecurityConfigurations {
         return httpSecurity
                 .authorizeHttpRequests(authz->
                         authz.requestMatchers(HttpMethod.POST,"/login").permitAll()
+                                .requestMatchers("/swagger-ui/**","/swagger-ui/index.html", "/v3/api-docs/**").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .csrf(AbstractHttpConfigurer::disable)

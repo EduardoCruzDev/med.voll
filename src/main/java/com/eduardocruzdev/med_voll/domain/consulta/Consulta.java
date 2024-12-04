@@ -9,6 +9,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+
 import java.time.LocalDateTime;
 
 
@@ -19,6 +20,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Consulta {
+
+
+    private MotivoCancelamiento motivoCancelamiento;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,7 +39,13 @@ public class Consulta {
     private LocalDateTime fecha;
 
 
+    @Column(name = "motivo_cancelamiento")
+    @Enumerated(EnumType.STRING)
 
+
+    public void cancelar(MotivoCancelamiento motivo) {
+        this.motivoCancelamiento = motivo;
+    }
 
 
 }
